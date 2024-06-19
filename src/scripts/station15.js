@@ -23,9 +23,12 @@ async function getData() {
 }
 
 function test(data) {
-  data.forEach((obj) => {
-    obj.full_name = obj.family_name + " " + obj.first_name;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      data.forEach((obj) => {
+        obj.full_name = obj.family_name + " " + obj.first_name;
+      });
+      resolve(data);
+    }, 3000);
   });
-
-  return new Promise((data) => setTimeout(data, 3000));
 }
